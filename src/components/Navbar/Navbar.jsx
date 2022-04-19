@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           Alireza Collection
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -21,39 +22,39 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
           <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" aria-current="page" to="/">
                 صفحه اصلی
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/products">
                 محصولات
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/about">
                 درباره ما
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/contact">
                 تماس با ما
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="buttons">
-          <a href="#" className="btn btn-outline-success ms-2">
+          <Link to="/cart" className="btn btn-outline-success ms-2">
               سبد خرید (0)
               <i className="fa fa-shopping-cart me-2" />
-            </a>
-            <a href="#" className="btn btn-outline-danger ms-2">
+            </Link>
+            <Link to="/register" className="btn btn-outline-danger ms-2">
               عضویت
               <i className="fa fa-user-plus me-2" />
-            </a>
-            <a href="#" className="btn btn-outline-primary ms-2">
+            </Link>
+            <Link to="/login" className="btn btn-outline-primary ms-2">
               ورود
               <i className="fa fa-sign-in me-2" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
