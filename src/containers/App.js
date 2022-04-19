@@ -5,10 +5,10 @@ import Home from "../components/Home/Home";
 
 const App = () => {
   return (
-    <Fragment>
+    <div className="App">
       <Navbar />
       <Home />
-    </Fragment>
+    </div>
   );
 };
 

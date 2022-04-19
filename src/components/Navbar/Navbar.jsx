@@ -2,13 +2,13 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
-      <div class="container">
-        <a class="navbar-brand" href="#">
+    <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+      <div className="container">
+        <a className="navbar-brand" href="#">
           Alireza Collection
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -16,43 +16,43 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                تماس با ما
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">
+                صفحه اصلی
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                درباره ما
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 محصولات
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
-                صفحه اصلی
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                درباره ما
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                تماس با ما
               </a>
             </li>
           </ul>
           <div className="buttons">
-            <a href="#" className="btn btn-outline-dark">
-              <i className="fa fa-sign-in me-1" />
-              ورود
-            </a>
-            <a href="#" className="btn btn-outline-warning ms-2">
-              <i className="fa fa-user-plus me-1" />
-              عضویت
-            </a>
-            <a href="#" className="btn btn-outline-success ms-2">
-              <i className="fa fa-shopping-cart me-1" />
+          <a href="#" className="btn btn-outline-success ms-2">
               سبد خرید (0)
+              <i className="fa fa-shopping-cart me-2" />
+            </a>
+            <a href="#" className="btn btn-outline-danger ms-2">
+              عضویت
+              <i className="fa fa-user-plus me-2" />
+            </a>
+            <a href="#" className="btn btn-outline-primary ms-2">
+              ورود
+              <i className="fa fa-sign-in me-2" />
             </a>
           </div>
         </div>
