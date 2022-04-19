@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Skeleton from "react-loading-skeleton";
+import { Link } from "react-router-dom";
 
 import serviceApi from "../../services/serviceApi";
 
@@ -93,29 +94,27 @@ const Products = () => {
                 </button>
               </div>
               {filter.map((product) => (
-                <Fragment>
-                  <div className="col-md-3 mb-4">
-                    <div class="card h-100 text-center p-4" key={product.id}>
+                  <div className="col-md-3 mb-4" key={product.id}>
+                    <div className="card h-100 text-center p-4" >
                       <img
                         src={product.image}
-                        class="card-img-top"
+                        className="card-img-top"
                         alt={product.title}
                         height="250px"
                       />
-                      <div class="card-body">
-                        <h5 class="card-title mb-5" style={{ height: "70px" }}>
+                      <div className="card-body">
+                        <h5 className="card-title mb-5" style={{ height: "70px" }}>
                           {product.title}
                         </h5>
-                        <p class="card-text lead fw-bold">
-                          تومان {product.price}
+                        <p className="card-text lead fw-bold">
+                           {product.price}{" "} تومان
                         </p>
-                        <a href="#" class="btn btn-outline-primary">
-                          افزودن به سبد خرید
-                        </a>
+                        <Link to={`/products/${product.id}`} className="btn btn-outline-primary">
+                          خرید محصول
+                        </Link>
                       </div>
                     </div>
                   </div>
-                </Fragment>
               ))}
             </Fragment>
           )}
