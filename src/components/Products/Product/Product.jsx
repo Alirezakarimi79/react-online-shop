@@ -1,10 +1,12 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useParams, Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import serviceApi from "../../../services/serviceApi";
+import { addToCart } from "./../../../redux/actions/productActions";
 
-const Product = () => {
+const Product = ({ addToCart }) => {
   const params = useParams();
 
   const [product, setProduct] = useState({});
@@ -20,8 +22,6 @@ const Product = () => {
   useEffect(() => {
     getProduct();
   }, []);
-
-  console.log(product);
 
   return (
     <div>
@@ -75,13 +75,11 @@ const Product = () => {
                   <button
                     type="button"
                     className="btn btn-outline-success px-4 py-2"
+                    onClick={() => addToCart(product)}
                   >
                     اضافه کردن به سبد خرید
                   </button>
-                  <Link
-                  to="/cart"
-                    className="btn btn-secondary me-2 px-3 py-2"
-                  >
+                  <Link to="/cart" className="btn btn-secondary me-2 px-3 py-2">
                     رفتن به سبد خرید
                   </Link>
                 </div>
@@ -94,4 +92,8 @@ const Product = () => {
   );
 };
 
-export default Product;
+const mapDispatchToProps = {
+  addToCart,
+};
+
+export default connect(null, mapDispatchToProps)(Product);
