@@ -9,7 +9,7 @@ import { addToCart } from "./../../../redux/actions/productActions";
 const Product = ({ addToCart }) => {
   const params = useParams();
 
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const getProduct = async () => {
