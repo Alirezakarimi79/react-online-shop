@@ -26,6 +26,11 @@ const Products = () => {
     getProducts();
   }, []);
 
+  const filteredProducts = (category) => {
+    const filterList = data.filter((product) => product.category === category);
+    setFilter(filterList);
+  };
+
   return (
     <div>
       <div className="container my-5 py-5">
@@ -38,32 +43,52 @@ const Products = () => {
         <div className="row justify-content-center">
           {loading ? (
             <Fragment>
-                <div className="col-md-3">
-                    <Skeleton height={350} />
-                </div>
-                <div className="col-md-3">
-                    <Skeleton height={350} />
-                </div>
-                <div className="col-md-3">
-                    <Skeleton height={350} />
-                </div>
+              <div className="col-md-3">
+                <Skeleton height={350} />
+              </div>
+              <div className="col-md-3">
+                <Skeleton height={350} />
+              </div>
+              <div className="col-md-3">
+                <Skeleton height={350} />
+              </div>
             </Fragment>
           ) : (
             <Fragment>
               <div className="buttons d-flex justify-content-center pb-5 mb-5">
-                <button type="button" className="btn btn-outline-dark me-2">
+                <button
+                  type="button"
+                  className="btn btn-outline-dark me-2"
+                  onClick={() => setFilter(data)}
+                >
                   همه محصولات
                 </button>
-                <button type="button" className="btn btn-outline-dark me-2">
+                <button
+                  type="button"
+                  className="btn btn-outline-dark me-2"
+                  onClick={() => filteredProducts("لباس مردانه")}
+                >
                   لباس مردانه
                 </button>
-                <button type="button" className="btn btn-outline-dark me-2">
+                <button
+                  type="button"
+                  className="btn btn-outline-dark me-2"
+                  onClick={() => filteredProducts("لباس زنانه")}
+                >
                   لباس زنانه
                 </button>
-                <button type="button" className="btn btn-outline-dark me-2">
+                <button
+                  type="button"
+                  className="btn btn-outline-dark me-2"
+                  onClick={() => filteredProducts("جواهرات")}
+                >
                   جواهرات
                 </button>
-                <button type="button" className="btn btn-outline-dark me-2">
+                <button
+                  type="button"
+                  className="btn btn-outline-dark me-2"
+                  onClick={() => filteredProducts("الکترونیک")}
+                >
                   الکترونیک
                 </button>
               </div>
@@ -78,9 +103,11 @@ const Products = () => {
                         height="250px"
                       />
                       <div class="card-body">
-                        <h5 class="card-title mb-5" style={{height: "100px"}}>{product.title}</h5>
+                        <h5 class="card-title mb-5" style={{ height: "70px" }}>
+                          {product.title}
+                        </h5>
                         <p class="card-text lead fw-bold">
-                        تومان {" "}{product.price}    
+                          تومان {product.price}
                         </p>
                         <a href="#" class="btn btn-outline-primary">
                           افزودن به سبد خرید
