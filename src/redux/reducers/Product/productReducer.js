@@ -5,7 +5,7 @@ export const productReducer = (state = [], action) => {
   const alreadyExistProduct = state.find(
     (product) => product.id === action.payload.id
   );
-
+  
   switch (action.type) {
     case productTypes.ADD_TO_CART:
       if (alreadyExistProduct) {
@@ -24,14 +24,14 @@ export const productReducer = (state = [], action) => {
         ];
       }
     case productTypes.REMOVE_FROM_CART:
-      if (alreadyExistProduct) {
-        state.map((product) =>
-          product.id === action.payload.id
-            ? { ...product, quantity: action.payload.quantity - 1 }
-            : product
-        );
+      if (alreadyExistProduct.quantity === 1) {
+            return state.filter((product) => product.id !== action.payload.id);
       } else {
-        return state.filter((product) => product.id !== action.payload.id);
+        return state.map((product) =>
+        product.id === action.payload.id
+          ? { ...product, quantity: action.payload.quantity - 1 }
+          : product
+          );
       }
 
     default:
